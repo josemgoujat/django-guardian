@@ -35,6 +35,7 @@ def create_anonymous_user(sender, **kwargs):
         retrieve_anonymous_function = import_string(
             guardian_settings.GET_INIT_ANONYMOUS_USER)
         user = retrieve_anonymous_function(User)
+        user.email = 'it@reclamador.es'
         user.save()
 
 # Only create an anonymous user if support is enabled.
